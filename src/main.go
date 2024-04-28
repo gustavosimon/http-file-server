@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "http-file-server/src/server"
 
 func main() {
-	fmt.Println("Hello World!")
+	server.Serve()
 }
