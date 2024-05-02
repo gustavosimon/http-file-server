@@ -58,6 +58,12 @@ func handleConnection(conn net.Conn) {
 	switch request.Resource {
 	case "/":
 		response = handler.ListRootDirectory()
+	case "/home":
+		response = handler.HomePage()
+	case "/page1":
+		response = handler.FirstPage()
+	case "/page2":
+		response = handler.SecondPage()
 	default:
 		response = handler.ListRootDirectory()
 	}

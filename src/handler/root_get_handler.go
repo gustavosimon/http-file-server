@@ -1,16 +1,14 @@
 package handler
 
 import (
-	"fmt"
 	"http-file-server/src/model"
-	"io/ioutil"
+	"os"
 )
 
 // Handler para retornar todos os arquivos disponíveis para serem acessados pelo serviço
 func ListRootDirectory() model.HttpResponse {
-	files, err := ioutil.ReadDir("./public")
+	files, err := os.ReadDir("./public")
 	if err != nil {
-		fmt.Println(err)
 		return model.From(500, make(map[string]string), "")
 	}
 	var body string
