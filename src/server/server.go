@@ -2,6 +2,7 @@ package server
 
 import (
 	"fmt"
+	"http-file-server/src/handler"
 	"http-file-server/src/model"
 	"net"
 )
@@ -41,5 +42,24 @@ func handleConnection(conn net.Conn) {
 	}
 	payload := string(buffer[:bytesRead])
 	request := model.CreateFromPayload(payload)
-	fmt.Println(request)
+	//
+	// Se a requisição for de um método diferente de GET,
+	// consideramos um método não permitido
+	//
+	if request.Method != "GET" {
+		var response = model.From(405, make(map[string]string), "")
+		conn.Write([]byte(response.String()))
+		return
+	}
+	//
+	// Avalia o recurso que foi requisitado e trata com o handler adequado
+	//
+	var response model.HttpResponse
+	switch request.Resource {
+	case "/":
+		response = handler.ListRootDirectory()
+	default:
+		response = handler.ListRootDirectory()
+	}
+	conn.Write([]byte(response.String()))
 }
