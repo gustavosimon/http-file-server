@@ -10,7 +10,5 @@ func HomePage() model.HttpResponse {
 	if err != nil {
 		return model.From(500, make(map[string]string), "")
 	}
-
 	return model.From(200, make(map[string]string), string(page[:]))
-
 }
