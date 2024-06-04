@@ -65,7 +65,7 @@ func handleConnection(conn net.Conn) {
 	case "/page2":
 		response = handler.SecondPage()
 	default:
-		response = handler.ListRootDirectory()
+		response = handler.ListFile(request.Resource[1:])
 	}
 	conn.Write([]byte(response.String()))
 }

@@ -20,6 +20,14 @@ func ListRootDirectory() model.HttpResponse {
 		}
 		body += file.Name() + "\n"
 	}
-
 	return model.From(200, make(map[string]string), body)
+}
+
+// Handler para retornar o arquivo informado por parãmetro
+func ListFile(resource string) model.HttpResponse {
+	file, err := os.ReadFile("./public/" + resource)
+	if err != nil {
+		return model.From(500, make(map[string]string), "")
+	}
+	return model.From(200, make(map[string]string), string(file[:]))
 }
