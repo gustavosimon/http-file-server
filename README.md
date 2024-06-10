@@ -26,3 +26,17 @@ Critérios de Avaliação (assumindo 10 como nota máxima):
 - Implementação das funcionalidades de acesso: 50% da nota (5 pontos)
 - Explicação e respostas aos questionamentos do professor relacionados
 ao código-fonte: 50% da nota (5 pontos).
+
+
+## Como executar esse projeto?
+
+### Pré-requisitos
+Ter o Go instalado. Versão utilizada go1.19.1.
+
+Estando no diretório root do projeto, executar:
+
+```shell
+go run src/main.go
+```
+
+Deve gerar um output de Servidor TCP iniciado!
