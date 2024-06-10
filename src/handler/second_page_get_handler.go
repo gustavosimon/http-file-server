@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// Handler para retornar a segunda página da aplicação
 func SecondPage() model.HttpResponse {
 	var page, err = os.ReadFile("./public/page2.html")
 	if err != nil {

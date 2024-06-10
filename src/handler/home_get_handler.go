@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// Handler para retornar a página home da aplicação
 func HomePage() model.HttpResponse {
 	var page, err = os.ReadFile("./public/home.html")
 	if err != nil {

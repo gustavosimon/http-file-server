@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// Handler para retornar a primeira página da aplicação
 func FirstPage() model.HttpResponse {
 	var page, err = os.ReadFile("./public/page1.html")
 	if err != nil {
